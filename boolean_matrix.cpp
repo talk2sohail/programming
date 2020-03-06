@@ -1,4 +1,5 @@
-// Question:Given a boolean matrix mat[r][c] of size r X c, modify it such that if a matrix cell mat[i][j] is 1 (or true) then make all the cells of ith row and jth column as 1.
+// Question:Given a boolean matrix mat[r][c] of size r X c, modify it such that 
+// if a matrix cell mat[i][j] is 1 (or true) then make all the cells of ith row and jth column as 1.
 
 
 
@@ -73,7 +74,6 @@ int main(){
         for(int j=0;j<c;j++)
 			cin>>a[i][j];   
 		}
-		// convert(a, r, c);
 		booleanMatrix(a, r, c);
 
 	}
