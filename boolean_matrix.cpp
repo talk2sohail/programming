@@ -50,12 +50,7 @@ void booleanMatrix(int a[SIZE][SIZE], int r, int c)
        a[i][0] = 1;
    }
    
-   for(int i=0;i<r;i++){
-       for(int j=0;j<c;j++){
-           cout<<a[i][j]<<" ";
-       }
-       cout<<endl;
-   }
+   
     
     
 }
@@ -75,7 +70,12 @@ int main(){
 			cin>>a[i][j];   
 		}
 		booleanMatrix(a, r, c);
-
+    for(int i=0;i<r;i++){
+       for(int j=0;j<c;j++){
+           cout<<a[i][j]<<" ";
+       }
+       cout<<endl;
+   }
 	}
 
 	
