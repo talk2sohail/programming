@@ -13,7 +13,7 @@ void print_mat(vector< vector<int> > &a ){
 }
 
 int getClose(int a, int b, int t){
-	return (t-a < t-b? a : b);
+	return (t-a < t-b? b : a);
 }
 
 
