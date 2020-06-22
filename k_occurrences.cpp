@@ -16,6 +16,7 @@ int countOccurence(int arr[], int n, int k) {
        }
    }
    int expectedCount = n/k;
+   
    int countElement = 0;
    //iterate over the hashMap to check which element is having the count greater than n/k
    
