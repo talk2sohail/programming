@@ -1,6 +1,3 @@
-
-//it works but gives TLE
-
 #include<bits/stdc++.h>
 using namespace std;
 int main()
