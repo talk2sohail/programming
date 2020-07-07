@@ -76,6 +76,16 @@ Node *pushAfter(int prev_node_value, int new_node_value)
     return head;
 }
 
+Node * RecusiveReverseLinkedList(Node *curr, Node *prev){
+
+    if(curr == NULL ){
+        return prev;
+    }
+
+    Node *next = curr->next;
+    curr->next  = prev;
+    return RecusiveReverseLinkedList(next, curr);
+}
 Node *reverseLinkedList()
 {
     Node *prev = NULL;
@@ -115,6 +125,39 @@ void printLinkedList(Node *node)
     }
 }
 
+Node * rotate(Node *head , int k){
+
+
+    //check if list is empty
+    if(head == NULL || head->next == NULL) return head;
+    int count = 1;
+    Node *curr = head;
+    //after this loop, curr will stand at kth node
+    while(count < k && curr != NULL){
+        curr = curr->next;
+        count++;
+    }
+    //check if list is exhausted or curr is at last node
+    //return the list
+    if(curr == NULL) return head;
+
+    //hold the pointer to the kth Node
+    Node *kthNode = curr;
+
+    //curr would be standing at the last Node
+    while(curr->next != NULL) curr = curr->next;
+
+    //join curr with the head
+    curr->next = head;
+
+    //make the new head
+    head  = kthNode->next;
+
+    //make the new tail
+    kthNode->next = NULL;
+
+    return head;
+}
 int main()
 {
     head = (Node *)malloc(sizeof(Node));
@@ -126,9 +169,13 @@ int main()
     pushAtEnd(10);
     pushAfter(11, 19);
     printLinkedList(head);
-    printf("\n\nAfter reversing list: \n");
-    reverseLinkedList();
-    printLinkedList(head);
+    printf("\n\nAfter reversing  k nodes: \n\n");
+    //this function returns new head of the reversed list
+    // Node * new_head = RecusiveReverseLinkedList(head, NULL);
+    // printLinkedList(new_head);
+    int k = 4;
+    Node * new_head = rotate(head, k);
+    printLinkedList(new_head);
     printf("\n");
     return 0;
 }
