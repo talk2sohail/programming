@@ -1,6 +1,6 @@
 
 
-//removes duplicate from sorted list in O(n) time
+//removes duplicate from sorted list in O(n) time and constant space
 Node *removeDuplicate(Node *root)
 {
 
