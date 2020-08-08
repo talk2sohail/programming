@@ -24,14 +24,13 @@ void print_mat(vector< vector<int> > &a ){
 
 int knapsack(vector<int> &val, vector<int> &wt, int W, int n){
 	
-	vector<vector<int> > dp(n+1, vector<int>(W+1));
-	dp[0][0] = 0;
+	vector<vector<int> > dp(n+1, vector<int>(W+1)); // 4x7
 	for(int i=0;i<=W;i++)
-		dp[0][i] = 1;
-	for(int i=0;i<=n;i++)
-		dp[i][0] = 1;
+		dp[0][i] = 0;
+		
 		
 	for(int i=1;i<=n;i++){
+		dp[i][0] = 0;
 		for(int j=1;j<=W;j++){
 			
 			if( wt[i-1] <= j)
@@ -47,9 +46,9 @@ int knapsack(vector<int> &val, vector<int> &wt, int W, int n){
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	vector<int> wt = {1,3,4,5};
-	vector<int> val = {1,4,5,7};
-	int W = 7;
+	vector<int> wt = {1,2,4};
+	vector<int> val = {10, 12, 28};
+	int W = 6;
 	cout<<knapsack(val, wt, W, wt.size());
 	
     return 0;

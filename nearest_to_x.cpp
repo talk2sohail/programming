@@ -75,6 +75,6 @@ int findClosest2(vector<int> &a, int target){
 int main(){
     vector<int> arr = {1,2,4,5,6,6,8,9};
     int t = 11;
-    cout<<findClosest(arr, t);
+    cout<<findClosest(arr, t)<<endl;
     return 0;
 }
