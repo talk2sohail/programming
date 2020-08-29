@@ -5,7 +5,8 @@ using namespace std;
 #define vi vector<int> 
 #define MOD 10000007
 #define MAX INT_MAX
-#define  MIN INT_MIN 
+#define  MIN INT_MIN
+#define all(v) (v).begin(), (v).end() 
 
 
 void print_mat(vector< vector<int> > &a ){
