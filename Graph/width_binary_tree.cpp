@@ -64,8 +64,6 @@ void solve(){
 		root->right = new Node(9); 
 		root->right->left = new Node(15); 
 	    root->right->right = new Node(8); 
-	    cout<<"Inorder Traversal : "<<endl;
-	    inorder(root);
 	    cout<<"\n_________\n";
 		cout<< "The max widht of the tree is:: "<<maxWidth(root);
 		cout<<endl;
