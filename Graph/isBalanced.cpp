@@ -25,36 +25,22 @@ struct Node{
 		val = x; left = right = NULL;
 	}
 };
- 
 
-
-int maxWidth(Node *root) {
+// O(n) time and O(h) call stack
+int isBalanced(Node *root){
 	
+	if(root == NULL ) return 0;
 	
-	if(!root) return 0;
-	queue<Node *> q;
+	int lh = isBalanced(root->left);
+	if(lh == -1) return -1;
+	int rh  = isBalanced(root->right);
+	if(rh == -1) return -1;
 	
-	q.push(root);
+	if(abs(rh - lh) >  1) return -1;
 	
-	
-	while(q.empty() == 0){
-		
-		int count = q.size();
-		res = max(count , res);
-	
-		for(int i=0;i<count;++i){
-			Node * curr = q.front();
-			q.pop();
-			if(curr->left) q.push(curr->left);
-			if(curr->right) q.push(curr->right);
-		}
-	}
-	
-	return res;
+	return max(rh, lh) + 1;
 	
 }
-
-
 void solve(){
 		
 		
@@ -64,11 +50,7 @@ void solve(){
 		root->right = new Node(9); 
 		root->right->left = new Node(15); 
 	    root->right->right = new Node(8); 
-	    cout<<"Inorder Traversal : "<<endl;
-	    inorder(root);
-	    cout<<"\n_________\n";
-		cout<< "The max widht of the tree is:: "<<maxWidth(root);
-		cout<<endl;
+	   
 		cout<<isBalanced(root);
 	
 }
