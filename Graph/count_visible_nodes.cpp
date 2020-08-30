@@ -26,6 +26,7 @@ struct Node{
 	}
 };
 
+
 int countVisibleNodes(Node *root, int maxSoFar){
 	if(!root) return 0;
 	int count = 0;
@@ -34,7 +35,7 @@ int countVisibleNodes(Node *root, int maxSoFar){
 		maxSoFar = root->val;
 	}
 	return count + countVisible(root->left, maxSoFar) + countVisible(root->right, maxSoFar);
-	
+}
 void solve(){
 		
 		

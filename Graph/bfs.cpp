@@ -67,7 +67,7 @@ void solve(){
 	   
 		vector<vector<int> > res;
 		res = levelOrder(root); 
-	
+        print_mat(res);
 }
 
 
