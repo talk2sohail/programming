@@ -35,6 +35,27 @@ void inorder(Node *node){
 	inorder(node->right);
 }
 
+//single traversal same time : O(n)
+
+Node * ancestor(Node *root, int n1, int n2){
+	
+	
+	if(!root) return NULL;
+	if(root->val === n1 || root->right == n2)
+		return root;
+	
+	Node * lca1 = ancestor(root->left, n1, n2);
+	Node * lca2 = ancestor(root->right, n1, n2);
+
+	if(lca1 != NULL && lca2 != NULL)
+		return root;
+		
+	if(lca1 != NULL) return lca1;
+	else return lca2;
+}
+
+
+
 bool findpath(Node *root, vector<Node *> &p , int n){
 	
 	if(!root) return false ;
