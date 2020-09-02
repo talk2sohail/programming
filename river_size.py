@@ -19,17 +19,17 @@ def dfs(i, j, matrix, visited):
 	l = [0,0,-1,1]
 	r = [1,-1,0,0]
 	count = 1
-	for k in range(0,1):
+	for k in range(0,4):
 		xx = l[k] + i
 		yy = r[k] + j
-		if safe(xx,yy,k,len(matrix), len(matrix[i])) and  visited[i][j] == False and matrix[i][j] == 1 :
+		if safe(xx,yy,k,len(matrix), len(matrix[i])) and  visited[xx][yy] == False and matrix[xx][yy] == 1 :
 			count += dfs(xx, yy, matrix, visited)
 	return count
 		
 	
 
 def safe(xx, yy, k, n, m):
-	print(xx, yy)
+	# ~ print(xx, yy)
 	return xx >= 0 and xx < n and yy >= 0 and yy < m 
 	
 	
