@@ -31,7 +31,7 @@ bool search(Node *root, int x){
 	if(!root)
 		return false;
 	else if(root->val == x) 
-		return true;
+		return true;	
 	else if(root->val > x)
 		return search(root->left, x);
 		
