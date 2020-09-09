@@ -18,32 +18,25 @@ void print_mat(vector< vector<int> > &a ){
     }
 }
 
-int BS(vector<int> &arr, int x){
+
+bool search(vector<vector<int> > &matrix, int target){
 	
-	if(arr.size() == 0 ) return -1;
-	
-	int left = 0;
-	int right = arr.size();
-	while(left < right ) {
-		int mid = left +  (right - left)/2;
-		
-		if(arr[mid] == x)
-			return mid;
-		else if(arr[mid] > x)
-			right = mid;
-		else left = mid+1;
+	int col = matrix[0].size();
+	int row = matrix.size();
+	int i = 0,j = col -1;
+	while( i < row && j>=0 ){
+		if(matrix[i][j] == target){
+			return true;
+		}
+		if(matrix[i][j] > target) {
+			j--;
+		}else{
+			i++;
+		}
 	}
+	return false;
 	
-	return arr[left] == x ? left : -1;
-}
-
-void solve(){
-	
-	vector<int> a = {1,2,3,4,5};
-	cout<<BS(a, 3);
-}
-	
-
+}	
 int main(){
     ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -53,8 +46,14 @@ int main(){
     cin>>t;
     while(t--){
 
-        solve();
-        
+		vector<vector<int> > arr = {
+  {1,   4,  7, 11, 15},
+  {2,   5,  8, 12, 19},
+  {3,   6,  9, 16, 22},
+  {10, 13, 14, 17, 24},
+  {18, 21, 23, 26, 30}
+};	
+	cout<<search(arr, 1);
 
 
     }
