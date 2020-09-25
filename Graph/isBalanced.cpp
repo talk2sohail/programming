@@ -26,6 +26,98 @@ struct Node{
 	}
 };
 
+
+Node * peek(stack<Node *> &s){
+	return s.top() != NULL ? s.top() : NULL;
+}
+void postorder_stack_traversal(Node *root){
+	if(!root) return;
+	
+	
+	
+	stack<Node *> s;
+	Node *curr = root;
+	
+	while(curr != NULL || !s.empty()){
+		
+		if(curr != NULL){
+			
+			s.push(curr);
+			curr = curr->left;
+		}else{
+				Node * tmp = peek(s)->right;
+				if(tmp == NULL){
+					tmp = s.top();
+					s.pop();
+					cout<<tmp->val<<" ";
+					
+					while(!s.empty() && tmp->val == peek(s)->right->val){
+						tmp = s.top();
+						s.pop();
+						cout<<tmp->val<<" ";
+					}
+				}else{
+					curr = tmp;
+				} 
+		}
+			
+			
+	}
+		
+		
+}
+void inorder_stack_traversal(Node *root){
+	
+	// node empty tree 
+	//~ if(!root) return root;
+	
+	stack<Node*> s;
+	Node *curr = root;
+	while(curr != NULL ||  !s.empty()){
+		
+		while(curr != NULL) {
+			s.push(curr);
+			curr = curr->left;
+		}
+		
+		
+		curr = s.top();
+		s.pop();
+		cout<<curr->val<<" ";
+		
+		curr = curr->right;
+		
+	}
+
+}
+
+
+void preorder_stack(Node *root){
+	
+	if(!root) return ;
+	
+	stack<Node *> s;
+	Node *curr = root;
+	
+	while( !s.empty() || curr != NULL){
+		
+		while(curr != NULL){
+			cout<<curr->val<<" ";
+			
+			if(curr->right) s.push(curr->right);
+			curr = curr->left;
+		}
+		
+		if(	!s.empty()) {
+			curr = s.top();
+			s.pop();
+		}
+		
+	}
+	
+	
+}
+
 // O(n) time and O(h) call stack
 int isBalanced(Node *root){
 	
@@ -51,8 +143,11 @@ void solve(){
 		root->right->left = new Node(15); 
 	    root->right->right = new Node(8); 
 	   
-		cout<<isBalanced(root);
-	
+		cout<<isBalanced(root)<<endl;
+		//~ inorder_stack_traversal(root);
+		//~ preorder_stack(root);
+
+		postorder_stack_traversal(root);
 }
 
 

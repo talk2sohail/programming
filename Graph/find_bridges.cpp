@@ -6,24 +6,12 @@ using namespace std;
 #define lli long long int
 #define vi vector<lli>
 
-
-void print_mat(vector<vi> &a)
-{
-    for (auto i = 0; i < (int)a.size(); i++)
-    {
-        for (auto j = 0; j < (int)a[i].size(); j++)
-        {
-            cout << a[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
+#define ff first 
+#define ss second
 
 
 
-
-// A utility function to add an edge in an
-// undirected graph.
+// A utility function to add an edge in an undirected graph.
 void addEdge(vector<int> adj[], int u, int v)
 {
     adj[u].push_back(v);
@@ -43,25 +31,29 @@ void printGraph(vector<int> adj[], int V)
         printf("\n");
     }
 }
+
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int V = 5;
-
+    int numNode, numConnections;
+	cin>>numNode>>numConnections;
     //array of vectors
-    vector<int> adj[V];
+    vector<int> adj[numNode];
+	vector<pair<int , int >> connections;
+	//take the number of connection / no of edges
+	
+	for(int i=0;i<numConnections;i++){
+		int a, b;
+		cin>>a>>b;
+		addEdge(adj, a, b);
+		
+	}
+	
 
-    //adding edges to the graphs
-    addEdge(adj, 0, 1);
-    addEdge(adj, 0, 4);
-    addEdge(adj, 1, 2);
-    addEdge(adj, 1, 3);
-    addEdge(adj, 1, 4);
-    addEdge(adj, 2, 3);
-    addEdge(adj, 3, 4);
-    printGraph(adj, V);
+    printGraph(adj, numNode);
 
     cout << endl;
     return 0;

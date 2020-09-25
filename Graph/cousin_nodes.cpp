@@ -29,7 +29,7 @@ struct Node{
 bool isCousins(Node* root, int x, int y) {
 	if(root == NULL) return false;
 	
-	Node * p1, *p2;
+	Node * p1 = NULL, *p2=NULL;
 	int d1, d2;
 	
 	queue<Node *> q;
