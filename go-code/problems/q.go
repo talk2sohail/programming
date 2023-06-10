@@ -33,5 +33,6 @@ func main() {
 	q.Enq(1)
 	fmt.Println("Enq: 2")
 	q.Enq(2)
-	fmt.Println("Queue size: ", q.Size())
+	fmt.Println("Queue empty?: ", q.Len())
+	fmt.Println("Queueu size: ", q.Size())
 }

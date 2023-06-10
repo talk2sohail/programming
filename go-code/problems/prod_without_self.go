@@ -1,5 +1,8 @@
 package main
-// product gives the product of all number execpt the the number 
+
+import "fmt"
+
+// product gives the product of all number execpt the the number
 // at the given index.
 func product(nums []int) []int {
 
@@ -10,7 +13,7 @@ func product(nums []int) []int {
 	for i := 1; i < s; i++ {
 		left[i] = left[i-1] * nums[i-1]
 	}
-
+	fmt.Println(left)
 	// update the array with right side product
 	Rsum := 1
 	for i := s - 1; i >= 0; i-- {
